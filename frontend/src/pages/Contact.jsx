@@ -19,6 +19,7 @@ import {
 import { companyInfo, faqItems, serviceAreas } from "../data/mockData";
 import { useToast } from "../hooks/use-toast";
 import { sendContactEmail, saveContactToDatabase } from "../services/emailService";
+import InterventionMap from "../components/InterventionMap";
 
 const Contact = () => {
   const { toast } = useToast();
