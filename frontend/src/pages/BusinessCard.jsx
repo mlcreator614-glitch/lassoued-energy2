@@ -345,7 +345,7 @@ const BusinessCardPage = () => {
             <div style={{ fontSize: '2.5mm', lineHeight: '1.3' }}>
               
               <div style={{ marginBottom: '3mm' }}>
-                <strong>📱 +33 0605583573</strong>
+                <strong>📱 +33 06 05 90 61 63</strong>
               </div>
 
               <div style={{ marginBottom: '3mm' }}>
