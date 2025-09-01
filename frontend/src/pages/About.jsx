@@ -58,7 +58,7 @@ const About = () => {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Lassoued Énergie est votre partenaire de confiance pour tous vos besoins en électricité 
-              et domotique. Depuis 15 ans, nous accompagnons particuliers et professionnels 
+              et domotique. Depuis 7 ans, nous accompagnons particuliers et professionnels 
               dans la région de Seine-et-Marne.
             </p>
           </div>
