@@ -42,7 +42,7 @@ const About = () => {
 
   const stats = [
     { number: "100+", label: "Clients Satisfaits" },
-    { number: "7", label: "Années d'Expérience" },
+    { number: "3", label: "Années d'Expérience" },
     { number: "24/7", label: "Support Client" },
     { number: "100%", label: "Travaux Garantis" }
   ];
