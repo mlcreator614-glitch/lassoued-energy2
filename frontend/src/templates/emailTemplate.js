@@ -97,7 +97,7 @@ export const createEmailTemplate = (data) => {
                     ⚡ <strong>LASSOUED ÉNERGIE</strong> - Votre Confort Électrique Local
                 </p>
                 <p style="margin: 10px 0 0 0; font-size: 12px; opacity: 0.8;">
-                    52 Rue Rouget de Lisle, 77550 Moissy-Cramayel | +33 0605583573
+                    52 Rue Rouget de Lisle, 77550 Moissy-Cramayel | +33 06 05 90 61 63
                 </p>
                 <p style="margin: 10px 0 0 0; font-size: 12px; opacity: 0.8;">
                     Service 24/7 - Inventeur électrique qualifié et talentueux
