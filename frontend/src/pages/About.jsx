@@ -88,7 +88,7 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-gray-600">
                 <p className="text-lg leading-relaxed">
-                  Fondée en 2010 par Ahmed Lassoued, électricien passionné avec plus de 15 ans d'expérience, 
+                  Fondée en 2018 par Yassine Lassoued, électricien passionné avec plus de 7 ans d'expérience, 
                   Lassoued Énergie s'est rapidement imposée comme référence dans le domaine de l'électricité 
                   et de la domotique en Seine-et-Marne.
                 </p>
