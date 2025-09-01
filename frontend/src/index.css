@@ -11,6 +11,25 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Masquer le bouton "Made with Emergent" */
+[data-testid="emergent-watermark"],
+div[style*="position: fixed"][style*="bottom: 20px"][style*="right: 20px"],
+button[style*="position: fixed"][style*="bottom"],
+div:has(> button:contains("Made with Emergent")),
+div:has(> div:contains("Made with Emergent")),
+*[class*="emergent-watermark"],
+*[id*="emergent-watermark"],
+div[style*="z-index: 9999"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Méthode alternative pour masquer les éléments en bas à droite */
+body > div:last-child[style*="position: fixed"] {
+    display: none !important;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
