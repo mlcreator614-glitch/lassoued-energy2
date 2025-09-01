@@ -145,7 +145,7 @@ export const teamMembers = [
     id: 1,
     name: "Yassine Lassoued",
     position: "Fondateur & Inventeur Électrique",
-    experience: "7 ans d'expérience - Électricien qualifié et talentueux",
+    experience: "3 ans d'expérience - Électricien qualifié et talentueux",
     specialties: ["Inventions électriques", "Installations électriques", "Domotique", "Management"],
     certifications: ["Qualification IRVE", "Habilitation électrique", "Formation domotique", "Inventeur breveté"]
   },
