@@ -47,27 +47,43 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Envoyer l'email via EmailJS
+      const emailResult = await sendContactEmail(formData);
+      
+      // Sauvegarder en base de données (optionnel)
+      const saveResult = await saveContactToDatabase(formData);
+
+      if (emailResult.success) {
+        toast({
+          title: "Message envoyé !",
+          description: `Votre demande a été envoyée à contact@lassoued-energie.fr. ${formData.urgence ? 'Intervention d\'urgence prévue dans l\'heure.' : 'Nous vous recontacterons dans les plus brefs délais.'}`,
+        });
+        
+        // Reset form
+        setFormData({
+          nom: "",
+          prenom: "",
+          email: "",
+          telephone: "",
+          entreprise: "",
+          service: "",
+          message: "",
+          urgence: false
+        });
+      } else {
+        throw new Error(emailResult.message);
+      }
+    } catch (error) {
+      console.error('Erreur soumission formulaire:', error);
       toast({
-        title: "Message envoyé !",
-        description: "Nous vous recontacterons dans les plus brefs délais.",
+        title: "Erreur d'envoi",
+        description: "Une erreur s'est produite. Veuillez réessayer ou nous appeler directement au +33 0605583573.",
+        variant: "destructive"
       });
-      
-      // Reset form
-      setFormData({
-        nom: "",
-        prenom: "",
-        email: "",
-        telephone: "",
-        entreprise: "",
-        service: "",
-        message: "",
-        urgence: false
-      });
-      
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const contactMethods = [
