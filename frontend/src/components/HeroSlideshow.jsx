@@ -21,7 +21,7 @@ const HeroSlideshow = () => {
       id: 2,
       image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwzfHxlbGVjdHJpY2FsJTIwd29ya3xlbnwwfHx8fDE3NTY3NDAzNzh8MA&ixlib=rb-4.1.0&q=85",
       title: "Équipe Qualifiée",
-      subtitle: "15 Ans d'Expérience",
+      subtitle: "7 Ans d'Expérience",
       description: "Techniciens certifiés et expérimentés, équipés des dernières technologies pour garantir des interventions de qualité.",
       buttonText: "Qui Sommes-Nous",
       buttonLink: "/qui-sommes-nous"
