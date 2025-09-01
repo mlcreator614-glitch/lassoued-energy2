@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="bg-blue-600 text-white px-3 py-2 rounded-lg font-bold text-lg">
-                LASSOUED
-                <span className="block text-sm font-normal">ÉNERGIE</span>
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-xl font-bold text-lg shadow-lg">
+                <span className="text-xl">L</span>ASSOUED
+                <span className="block text-sm font-light tracking-wider">ÉNERGIE</span>
               </div>
             </div>
             <p className="text-gray-300 mb-4">
