@@ -78,7 +78,7 @@ const Contact = () => {
       console.error('Erreur soumission formulaire:', error);
       toast({
         title: "Erreur d'envoi",
-        description: "Une erreur s'est produite. Veuillez réessayer ou nous appeler directement au +33 0605583573.",
+        description: "Une erreur s'est produite. Veuillez réessayer ou nous appeler directement au +33 06 05 90 61 63.",
         variant: "destructive"
       });
     } finally {
