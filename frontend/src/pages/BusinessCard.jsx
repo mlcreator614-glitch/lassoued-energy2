@@ -169,7 +169,7 @@ const BusinessCardPage = () => {
                     
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
                       <span style={{ fontSize: '24px', marginRight: '12px' }}>📱</span>
-                      <strong>+33 0605583573</strong>
+                      <strong>+33 06 05 90 61 63</strong>
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
