@@ -84,50 +84,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Votre Confort 
-                <span className="text-blue-600"> Électrique</span> Local
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Lassoued Énergie vous accompagne dans tous vos projets électriques et domotiques. 
-                Solutions rapides, professionnelles et adaptées à vos besoins.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg"
-                >
-                  Devis Gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg"
-                >
-                  <Phone className="mr-2 w-5 h-5" />
-                  Urgence 24/7
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-blue-600 rounded-2xl p-8 text-white">
-                <Settings className="w-20 h-20 mb-4 opacity-80" />
-                <h3 className="text-2xl font-bold mb-2">Solutions Électriques</h3>
-                <p className="text-blue-100">
-                  Dépannage rapide, installations certifiées, et maintenance préventive 
-                  pour votre sécurité et votre confort.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slideshow */}
+      <HeroSlideshow />
 
       {/* Features Section */}
       <section className="py-16 bg-white">
