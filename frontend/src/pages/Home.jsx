@@ -218,7 +218,7 @@ const Home = () => {
               className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3"
             >
               <Phone className="mr-2 w-5 h-5" />
-              +33 0605583573
+              +33 06 05 90 61 63
             </Button>
           </div>
         </div>
