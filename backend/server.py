@@ -76,6 +76,34 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+# Endpoints pour les contacts
+@api_router.post("/contact", response_model=ContactForm)
+async def create_contact(input: ContactFormCreate):
+    """Recevoir une demande de contact depuis le formulaire"""
+    contact_dict = input.dict()
+    contact_obj = ContactForm(**contact_dict)
+    
+    # Sauvegarder en base de données
+    await db.contacts.insert_one(contact_obj.dict())
+    
+    # Log pour debug
+    urgence_text = "🚨 URGENCE 24/7" if contact_obj.urgence else "📧 Normal"
+    logger.info(f"{urgence_text} - Nouveau contact: {contact_obj.prenom} {contact_obj.nom} ({contact_obj.email}) - Service: {contact_obj.service}")
+    
+    return contact_obj
+
+@api_router.get("/contact", response_model=List[ContactForm])
+async def get_contacts():
+    """Récupérer toutes les demandes de contact (pour back office)"""
+    contacts = await db.contacts.find().sort("timestamp", -1).to_list(1000)
+    return [ContactForm(**contact) for contact in contacts]
+
+@api_router.get("/contact/urgent")
+async def get_urgent_contacts():
+    """Récupérer uniquement les demandes urgentes"""
+    urgent_contacts = await db.contacts.find({"urgence": True}).sort("timestamp", -1).to_list(100)
+    return [ContactForm(**contact) for contact in urgent_contacts]
+
 # Include the router in the main app
 app.include_router(api_router)
 
