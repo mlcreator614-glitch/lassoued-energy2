@@ -143,9 +143,9 @@ export const testimonials = [
 export const teamMembers = [
   {
     id: 1,
-    name: "Ahmed Lassoued",
+    name: "Yassine Lassoued",
     position: "Fondateur & Électricien Expert",
-    experience: "15 ans d'expérience",
+    experience: "7 ans d'expérience",
     specialties: ["Installations électriques", "Domotique", "Management"],
     certifications: ["Qualification IRVE", "Habilitation électrique", "Formation domotique"]
   },
