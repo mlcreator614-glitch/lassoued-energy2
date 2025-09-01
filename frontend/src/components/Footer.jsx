@@ -13,7 +13,7 @@ const Footer = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_lassoued-wp-mirror/artifacts/l85f2sax_lasswad%20logo%20.%20-%20copie%202.png" 
                 alt="Lassoued Énergie" 
-                className="h-40 w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-gray-300 mb-4">
