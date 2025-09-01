@@ -45,7 +45,7 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center">
               <img 
-                src="https://customer-assets.emergentagent.com/job_lassoued-wp-mirror/artifacts/twdvc49i_lasswad%20logo%20png.png" 
+                src="https://customer-assets.emergentagent.com/job_lassoued-wp-mirror/artifacts/k9wcd74f_lasswad%20logo%20png2.png" 
                 alt="Lassoued Énergie" 
                 className="h-48 w-auto hover:scale-105 transition-transform duration-300"
               />
