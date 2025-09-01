@@ -47,7 +47,7 @@ const Header = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_lassoued-wp-mirror/artifacts/l85f2sax_lasswad%20logo%20.%20-%20copie%202.png" 
                 alt="Lassoued Énergie" 
-                className="h-48 w-auto hover:scale-105 transition-transform duration-300"
+                className="h-24 w-auto hover:scale-105 transition-transform duration-300"
               />
             </Link>
 
