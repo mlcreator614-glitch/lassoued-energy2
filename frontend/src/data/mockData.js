@@ -10,7 +10,7 @@ export const companyInfo = {
     country: "France"
   },
   contact: {
-    phone: "+33 0605583573",
+    phone: "+33 06 05 90 61 63",
     email: "contact@lassoued-energie.fr"
   },
   features: [
