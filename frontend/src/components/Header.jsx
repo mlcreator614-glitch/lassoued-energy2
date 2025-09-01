@@ -44,9 +44,9 @@ const Header = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-xl">
-                LASSOUED
-                <span className="block text-sm font-normal">ÉNERGIE</span>
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-3 rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <span className="text-2xl">L</span>ASSOUED
+                <span className="block text-sm font-light tracking-wider">ÉNERGIE</span>
               </div>
             </Link>
 
