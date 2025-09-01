@@ -10,10 +10,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-xl font-bold text-lg shadow-lg">
-                <span className="text-xl">L</span>ASSOUED
-                <span className="block text-sm font-light tracking-wider">ÉNERGIE</span>
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_lassoued-wp-mirror/artifacts/twdvc49i_lasswad%20logo%20png.png" 
+                alt="Lassoued Énergie" 
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-gray-300 mb-4">
               Votre partenaire de confiance pour tous vos travaux électriques et solutions domotiques. 
