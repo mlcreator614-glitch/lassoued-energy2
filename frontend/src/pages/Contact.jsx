@@ -320,28 +320,8 @@ const Contact = () => {
 
             {/* Additional Info */}
             <div className="space-y-8">
-              {/* Service Areas */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <MapPin className="w-5 h-5 text-blue-600 mr-2" />
-                    Zones d'Intervention
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Nous intervenons dans toute la Seine-et-Marne et les départements limitrophes :
-                  </p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {serviceAreas.map((area, index) => (
-                      <div key={index} className="flex items-center text-sm">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                        <span>{area}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Interactive Map */}
+              <InterventionMap />
 
               {/* Emergency Contact */}
               <Card className="bg-red-50 border-red-200">
