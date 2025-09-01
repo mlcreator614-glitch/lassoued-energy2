@@ -360,7 +360,7 @@ const Contact = () => {
                       <span className="font-semibold text-red-800">{companyInfo.contact.phone}</span>
                     </div>
                     <p className="text-sm text-red-600">
-                      Intervention d'urgence dans l'heure qui suit votre appel
+                      Intervention d'urgence rapide
                     </p>
                   </div>
                 </CardContent>
