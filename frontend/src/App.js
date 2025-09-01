@@ -10,6 +10,11 @@ import Contact from "./pages/Contact";
 import BusinessCard from "./pages/BusinessCard";
 
 function App() {
+  // S'assurer que le titre est toujours correct
+  useEffect(() => {
+    document.title = "Lassoued Énergie - Votre Confort Électrique Local";
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
