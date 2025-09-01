@@ -131,7 +131,7 @@ ${data.message}
 ---
 ⚡ LASSOUED ÉNERGIE
 52 Rue Rouget de Lisle, 77550 Moissy-Cramayel
-+33 0605583573 | contact@lassoued-energie.fr
++33 06 05 90 61 63 | contact@lassoued-energie.fr
 Service 24/7 - Inventeur électrique qualifié et talentueux
   `;
 };
