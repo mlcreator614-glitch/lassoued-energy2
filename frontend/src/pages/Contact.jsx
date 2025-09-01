@@ -57,7 +57,7 @@ const Contact = () => {
       if (emailResult.success) {
         toast({
           title: "Message envoyé !",
-          description: `Votre demande a été envoyée à contact@lassoued-energie.fr. ${formData.urgence ? 'Intervention d\'urgence prévue dans l\'heure.' : 'Nous vous recontacterons dans les plus brefs délais.'}`,
+          description: `Votre demande a été envoyée à contact@lassoued-energie.fr. ${formData.urgence ? 'Intervention d\'urgence rapide.' : 'Nous vous recontacterons dans les plus brefs délais.'}`,
         });
         
         // Reset form
