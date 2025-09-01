@@ -44,10 +44,11 @@ const Header = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-3 rounded-xl font-bold text-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                <span className="text-2xl">L</span>ASSOUED
-                <span className="block text-sm font-light tracking-wider">ÉNERGIE</span>
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_lassoued-wp-mirror/artifacts/twdvc49i_lasswad%20logo%20png.png" 
+                alt="Lassoued Énergie" 
+                className="h-12 w-auto hover:scale-105 transition-transform duration-300"
+              />
             </Link>
 
             {/* Desktop Navigation */}
