@@ -60,10 +60,14 @@ Le système utilise automatiquement :
 ```
 Serveur SMTP: smtp.ionos.fr
 Port: 587 (STARTTLS)
-Sécurité: TLS
+Sécurité: TLS/STARTTLS
 Username: contact@lassoued-energie.fr
-Password: [votre mot de passe]
+Password: [votre mot de passe IONOS]
 ```
+
+**⚠️ Important :** 
+- Utilisez le **mot de passe de votre compte email IONOS**
+- Si vous avez l'authentification 2FA, créez un **mot de passe d'application**
 
 ### 🎯 **Test du Système :**
 
