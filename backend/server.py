@@ -80,15 +80,32 @@ async def get_status_checks():
 @api_router.post("/contact", response_model=ContactForm)
 async def create_contact(input: ContactFormCreate):
     """Recevoir une demande de contact depuis le formulaire"""
+    from email_service import send_contact_email, send_confirmation_email
+    
     contact_dict = input.dict()
     contact_obj = ContactForm(**contact_dict)
     
     # Sauvegarder en base de données
     await db.contacts.insert_one(contact_obj.dict())
     
+    # Envoyer les emails
+    email_sent = False
+    confirmation_sent = False
+    
+    try:
+        # Email vers l'entreprise
+        email_sent = await send_contact_email(contact_dict)
+        
+        # Email de confirmation au client
+        confirmation_sent = await send_confirmation_email(contact_dict)
+        
+    except Exception as e:
+        logger.error(f"Erreur envoi emails: {str(e)}")
+    
     # Log pour debug
     urgence_text = "🚨 URGENCE 24/7" if contact_obj.urgence else "📧 Normal"
-    logger.info(f"{urgence_text} - Nouveau contact: {contact_obj.prenom} {contact_obj.nom} ({contact_obj.email}) - Service: {contact_obj.service}")
+    email_status = "✅ Email envoyé" if email_sent else "❌ Erreur email"
+    logger.info(f"{urgence_text} - Nouveau contact: {contact_obj.prenom} {contact_obj.nom} ({contact_obj.email}) - Service: {contact_obj.service} - {email_status}")
     
     return contact_obj
 
