@@ -142,12 +142,12 @@ Service 24/7 | +33 06 05 90 61 63
         msg.attach(part2)
 
         # Envoyer l'email
+        # Envoyer l'email avec SSL pour IONOS
         await aiosmtplib.send(
             msg,
             hostname=SMTP_CONFIG["hostname"],
             port=SMTP_CONFIG["port"],
-            use_tls=SMTP_CONFIG.get("use_tls", False),
-            start_tls=SMTP_CONFIG.get("use_tls", False),
+            use_tls=True,  # IONOS utilise STARTTLS sur port 587
             username=SMTP_CONFIG["username"],
             password=SMTP_CONFIG["password"],
         )
