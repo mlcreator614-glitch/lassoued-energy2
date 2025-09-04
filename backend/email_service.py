@@ -21,6 +21,10 @@ async def send_contact_email(contact_data: Dict[str, Any]) -> bool:
     Envoie un email de contact via SMTP IONOS
     """
     try:
+        # Vérifier si le mot de passe est configuré
+        if not SMTP_CONFIG["password"]:
+            logger.error("❌ Mot de passe IONOS non configuré dans .env")
+            return False
         # Créer le message
         msg = MIMEMultipart('alternative')
         msg['Subject'] = f"{'🚨 URGENCE - ' if contact_data.get('urgence') else ''}Nouvelle demande - {contact_data['prenom']} {contact_data['nom']}"
