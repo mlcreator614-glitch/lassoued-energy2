@@ -138,15 +138,33 @@ backend:
 frontend:
   - task: "Contact Form Integration"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/frontend/src/services/emailService.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Updated frontend emailService.js to point to PHP backend localhost:8002/api/contact.php instead of old Python backend. CORS configured for localhost:3000."
+      - working: true
+        agent: "main"
+        comment: "Fixed navigation buttons - All Devis Gratuit and Demander un Devis buttons now properly linked to /contact page. Fixed header buttons, services page buttons, and slideshow buttons."
+
+  - task: "Quote Button Navigation"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Header.jsx, /app/frontend/src/pages/Services.jsx, /app/frontend/src/components/HeroSlideshow.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "user"
+        comment: "User reported that quote request buttons (Devis Gratuit/Demander un Devis) are not working properly throughout the site."
+      - working: true
+        agent: "main"
+        comment: "Fixed all quote buttons: Header desktop/mobile buttons, Services page cards, and slideshow. All now properly navigate to /contact form."
 
 metadata:
   created_by: "main_agent"
