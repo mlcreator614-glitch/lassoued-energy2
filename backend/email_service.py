@@ -7,12 +7,11 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# Configuration SMTP IONOS
+# Configuration SMTP IONOS (Correcte)
 SMTP_CONFIG = {
     "hostname": "smtp.ionos.fr",
-    "port": 465,  # SSL pour IONOS
-    "use_tls": False,  # Utiliser SSL au lieu de STARTTLS
-    "use_ssl": True,   # Activer SSL
+    "port": 587,  # Port STARTTLS pour IONOS
+    "use_tls": True,
     "username": os.environ.get("IONOS_EMAIL", "contact@lassoued-energie.fr"),
     "password": os.environ.get("IONOS_PASSWORD", "")  # À définir dans .env
 }
