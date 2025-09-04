@@ -1,12 +1,14 @@
 <?php
 /**
- * Configuration de base - Lassoued Énergie
+ * Configuration IONOS - Lassoued Énergie
  */
 
-// Configuration base de données SQLite (pour test local)
+// Configuration base de données MySQL IONOS
 $db_config = [
-    'driver' => 'sqlite',
-    'database' => __DIR__ . '/database.sqlite',
+    'host' => 'localhost', // Généralement localhost sur IONOS
+    'dbname' => 'DB_NAME_HERE', // Remplacez par le nom de votre base de données IONOS
+    'username' => 'DB_USERNAME_HERE', // Remplacez par votre nom d'utilisateur MySQL IONOS
+    'password' => 'DB_PASSWORD_HERE', // Remplacez par votre mot de passe MySQL IONOS
     'charset' => 'utf8mb4'
 ];
 
@@ -29,8 +31,8 @@ $company_info = [
     'email' => 'contact@lassoued-energie.fr'
 ];
 
-// CORS pour API
-header('Access-Control-Allow-Origin: http://localhost:3000');
+// CORS pour API (ajuster selon votre domaine)
+header('Access-Control-Allow-Origin: https://votre-domaine.com'); // Remplacez par votre domaine
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
@@ -42,31 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 // Timezone
 date_default_timezone_set('Europe/Paris');
 
-// Fonction de connexion à la base de données
+// Fonction de connexion à la base de données MySQL
 function getDatabase() {
     global $db_config;
     
     try {
-        // Connexion SQLite
-        $dsn = "sqlite:" . $db_config['database'];
-        $pdo = new PDO($dsn);
+        $dsn = "mysql:host={$db_config['host']};dbname={$db_config['dbname']};charset={$db_config['charset']}";
+        $pdo = new PDO($dsn, $db_config['username'], $db_config['password']);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        
-        // Créer la table si elle n'existe pas
-        $sql = "CREATE TABLE IF NOT EXISTS contacts (
-            id TEXT PRIMARY KEY,
-            nom TEXT NOT NULL,
-            prenom TEXT NOT NULL,
-            email TEXT NOT NULL,
-            telephone TEXT NOT NULL,
-            entreprise TEXT,
-            service TEXT NOT NULL,
-            message TEXT NOT NULL,
-            urgence INTEGER DEFAULT 0,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        )";
-        $pdo->exec($sql);
         
         return $pdo;
     } catch (PDOException $e) {
