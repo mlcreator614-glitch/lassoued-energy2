@@ -146,7 +146,8 @@ Service 24/7 | +33 06 05 90 61 63
             msg,
             hostname=SMTP_CONFIG["hostname"],
             port=SMTP_CONFIG["port"],
-            use_tls=SMTP_CONFIG["use_tls"],
+            use_tls=SMTP_CONFIG.get("use_tls", False),
+            start_tls=SMTP_CONFIG.get("use_tls", False),
             username=SMTP_CONFIG["username"],
             password=SMTP_CONFIG["password"],
         )
