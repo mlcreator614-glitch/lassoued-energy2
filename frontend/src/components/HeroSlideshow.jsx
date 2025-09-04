@@ -14,8 +14,8 @@ const HeroSlideshow = () => {
       title: "Installations Électriques",
       subtitle: "Professionnelles & Certifiées",
       description: "Nos experts réalisent vos installations électriques selon les normes NF C 15-100 pour votre sécurité et votre confort.",
-      buttonText: "Nos Services",
-      buttonLink: "/nos-services"
+      buttonText: "Devis Gratuit",
+      buttonLink: "/contact"
     },
     {
       id: 2,
