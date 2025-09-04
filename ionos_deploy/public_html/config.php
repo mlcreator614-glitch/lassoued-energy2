@@ -6,9 +6,9 @@
 // Configuration base de données MySQL IONOS
 $db_config = [
     'host' => 'localhost', // Généralement localhost sur IONOS
-    'dbname' => 'DB_NAME_HERE', // Remplacez par le nom de votre base de données IONOS
-    'username' => 'DB_USERNAME_HERE', // Remplacez par votre nom d'utilisateur MySQL IONOS
-    'password' => 'DB_PASSWORD_HERE', // Remplacez par votre mot de passe MySQL IONOS
+    'dbname' => 'dbs14726387', // Remplacez par le nom de votre base de données IONOS
+    'username' => 'dbu370557', // Remplacez par votre nom d'utilisateur MySQL IONOS
+    'password' => 'Creator61400@', // Remplacez par votre mot de passe MySQL IONOS
     'charset' => 'utf8mb4'
 ];
 
