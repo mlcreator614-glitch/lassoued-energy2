@@ -70,9 +70,11 @@ const Header = () => {
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                Devis Gratuit
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                  Devis Gratuit
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
