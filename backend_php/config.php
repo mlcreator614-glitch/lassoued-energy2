@@ -47,12 +47,30 @@ function getDatabase() {
     global $db_config;
     
     try {
-        $dsn = "mysql:host={$db_config['host']};dbname={$db_config['dbname']};charset={$db_config['charset']}";
-        $pdo = new PDO($dsn, $db_config['username'], $db_config['password']);
+        // Connexion SQLite
+        $dsn = "sqlite:" . $db_config['database'];
+        $pdo = new PDO($dsn);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        
+        // Créer la table si elle n'existe pas
+        $sql = "CREATE TABLE IF NOT EXISTS contacts (
+            id TEXT PRIMARY KEY,
+            nom TEXT NOT NULL,
+            prenom TEXT NOT NULL,
+            email TEXT NOT NULL,
+            telephone TEXT NOT NULL,
+            entreprise TEXT,
+            service TEXT NOT NULL,
+            message TEXT NOT NULL,
+            urgence INTEGER DEFAULT 0,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )";
+        $pdo->exec($sql);
+        
         return $pdo;
     } catch (PDOException $e) {
+        logError("Erreur de connexion base de données: " . $e->getMessage());
         http_response_code(500);
         echo json_encode(['error' => 'Erreur de connexion base de données']);
         exit;
