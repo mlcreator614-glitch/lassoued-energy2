@@ -62,8 +62,9 @@ export const sendContactEmail = async (formData) => {
 // Fonction pour envoyer vers l'API backend avec IONOS
 export const saveContactToDatabase = async (formData) => {
   try {
-    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-    const response = await fetch(`${BACKEND_URL}/api/contact`, {
+    // Utiliser le backend PHP local au lieu de l'ancien backend Python
+    const BACKEND_URL = 'http://localhost:8002';
+    const response = await fetch(`${BACKEND_URL}/api/contact.php`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -72,13 +73,15 @@ export const saveContactToDatabase = async (formData) => {
     });
 
     if (response.ok) {
+      const result = await response.json();
       return { 
         success: true, 
-        message: 'Email envoyé via IONOS et sauvegardé en base de données' 
+        message: 'Email envoyé via IONOS et sauvegardé en base de données',
+        data: result
       };
     } else {
       const errorData = await response.json();
-      throw new Error(errorData.detail || 'Erreur serveur');
+      throw new Error(errorData.error || 'Erreur serveur');
     }
   } catch (error) {
     console.error('❌ Erreur sauvegarde/envoi:', error);
