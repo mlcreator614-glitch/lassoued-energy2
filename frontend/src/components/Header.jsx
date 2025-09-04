@@ -108,9 +108,11 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white mt-4">
-                  Devis Gratuit
-                </Button>
+                <Link to="/contact">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white mt-4">
+                    Devis Gratuit
+                  </Button>
+                </Link>
               </nav>
             </div>
           )}
