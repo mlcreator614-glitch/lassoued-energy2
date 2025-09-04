@@ -145,13 +145,28 @@ Service 24/7 | +33 06 05 90 61 63
         msg.attach(part2)
 
         # Envoyer l'email
-        # Créer la connexion SMTP avec configuration IONOS spécifique
-        smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=SMTP_CONFIG["port"])
-        await smtp.connect()
-        await smtp.starttls()  # Démarrer TLS après connexion
-        await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
-        await smtp.send_message(msg)
-        await smtp.quit()
+        # Essayer d'abord avec STARTTLS (port 587)
+        try:
+            smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=587)
+            await smtp.connect()
+            await smtp.starttls()
+            await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
+            await smtp.send_message(msg)
+            await smtp.quit()
+            logger.info("✅ Email envoyé via STARTTLS (port 587)")
+        except Exception as e1:
+            logger.warning(f"⚠️ Échec STARTTLS: {e1}")
+            # Essayer avec SSL direct (port 465)
+            try:
+                smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=465, use_tls=True)
+                await smtp.connect()
+                await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
+                await smtp.send_message(msg)
+                await smtp.quit()
+                logger.info("✅ Email envoyé via SSL (port 465)")
+            except Exception as e2:
+                logger.error(f"❌ Échec SSL: {e2}")
+                raise e2
 
         logger.info(f"✅ Email envoyé avec succès pour {contact_data['prenom']} {contact_data['nom']}")
         return True
