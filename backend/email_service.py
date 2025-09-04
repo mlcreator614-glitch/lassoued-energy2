@@ -212,21 +212,12 @@ async def send_confirmation_email(contact_data: Dict[str, Any]) -> bool:
         part = MIMEText(confirmation_html, 'html', 'utf-8')
         msg.attach(part)
 
-        # Essayer d'abord avec STARTTLS puis SSL pour confirmation
-        try:
-            smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=587)
-            await smtp.connect()
-            await smtp.starttls()
-            await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
-            await smtp.send_message(msg)
-            await smtp.quit()
-        except Exception:
-            # Fallback vers SSL
-            smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=465, use_tls=True)
-            await smtp.connect()
-            await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
-            await smtp.send_message(msg)
-            await smtp.quit()
+        # Utiliser SSL direct sur port 465 pour email de confirmation
+        smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=465, use_tls=True)
+        await smtp.connect()
+        await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
+        await smtp.send_message(msg)
+        await smtp.quit()
 
         return True
 
