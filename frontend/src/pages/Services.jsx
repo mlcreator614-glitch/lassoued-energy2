@@ -131,10 +131,12 @@ const Services = () => {
                     </div>
                   )}
 
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                    Demander un Devis
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+                  <Link to="/contact">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                      Demander un Devis
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
