@@ -49,16 +49,13 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Envoyer l'email via EmailJS
-      const emailResult = await sendContactEmail(formData);
-      
-      // Sauvegarder en base de données (optionnel)
-      const saveResult = await saveContactToDatabase(formData);
+      // Utiliser le backend avec IONOS (plus fiable que EmailJS)
+      const result = await saveContactToDatabase(formData);
 
-      if (emailResult.success) {
+      if (result.success) {
         toast({
           title: "Message envoyé !",
-          description: `Votre demande a été envoyée à contact@lassoued-energie.fr. ${formData.urgence ? 'Intervention d\'urgence rapide.' : 'Nous vous recontacterons dans les plus brefs délais.'}`,
+          description: `Votre demande a été envoyée à contact@lassoued-energie.fr. ${formData.urgence ? 'Intervention d\'urgence rapide.' : 'Nous vous recontacterons dans les plus brefs délais.'} Vous recevrez également un email de confirmation.`,
         });
         
         // Reset form
@@ -73,7 +70,7 @@ const Contact = () => {
           urgence: false
         });
       } else {
-        throw new Error(emailResult.message);
+        throw new Error(result.message);
       }
     } catch (error) {
       console.error('Erreur soumission formulaire:', error);
