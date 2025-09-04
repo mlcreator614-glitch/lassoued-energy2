@@ -3,12 +3,10 @@
  * Configuration de base - Lassoued Énergie
  */
 
-// Configuration base de données MySQL
+// Configuration base de données SQLite (pour test local)
 $db_config = [
-    'host' => 'localhost', // Ou l'host MySQL fourni par IONOS
-    'dbname' => 'lassoued_energie',
-    'username' => 'your_db_username', // À remplacer par vos identifiants IONOS
-    'password' => 'your_db_password', // À remplacer par votre mot de passe MySQL IONOS
+    'driver' => 'sqlite',
+    'database' => __DIR__ . '/database.sqlite',
     'charset' => 'utf8mb4'
 ];
 
