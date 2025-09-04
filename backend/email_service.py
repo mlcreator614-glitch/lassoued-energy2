@@ -208,15 +208,13 @@ async def send_confirmation_email(contact_data: Dict[str, Any]) -> bool:
         part = MIMEText(confirmation_html, 'html', 'utf-8')
         msg.attach(part)
 
-        # Envoyer l'email de confirmation avec SSL pour IONOS
-        await aiosmtplib.send(
-            msg,
-            hostname=SMTP_CONFIG["hostname"],
-            port=SMTP_CONFIG["port"],
-            use_tls=True,  # IONOS utilise STARTTLS sur port 587
-            username=SMTP_CONFIG["username"],
-            password=SMTP_CONFIG["password"],
-        )
+        # Créer la connexion SMTP pour email de confirmation
+        smtp = aiosmtplib.SMTP(hostname=SMTP_CONFIG["hostname"], port=SMTP_CONFIG["port"])
+        await smtp.connect()
+        await smtp.starttls()  # Démarrer TLS après connexion
+        await smtp.login(SMTP_CONFIG["username"], SMTP_CONFIG["password"])
+        await smtp.send_message(msg)
+        await smtp.quit()
 
         return True
 
