@@ -64,7 +64,7 @@ const Footer = () => {
               <li>Installation & Maintenance</li>
               <li>Dépannage Urgent</li>
               <li>Mise aux Normes</li>
-              <li>Éclairage</li>
+              <li>Éclairage </li>
             </ul>
           </div>
 
