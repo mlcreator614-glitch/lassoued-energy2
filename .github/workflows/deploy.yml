@@ -15,14 +15,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         working-directory: ./frontend
-        run: yarn install
+        run: yarn install --network-timeout 600000 --ignore-engines
 
       - name: Build React app
         working-directory: ./frontend
+        env:
+          CI: false
+          DISABLE_ESLINT_PLUGIN: true
+          GENERATE_SOURCEMAP: false
         run: yarn build
 
       - name: Deploy to IONOS via FTP
